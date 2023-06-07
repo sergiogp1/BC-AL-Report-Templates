@@ -1,2 +1,2 @@
 # BC-AL-Report-Templates
-Simple AL report template for Microsoft 365 Business Central.
+Simple AL report templates for Microsoft 365 Business Central.
