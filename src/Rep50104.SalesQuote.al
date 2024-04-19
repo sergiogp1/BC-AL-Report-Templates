@@ -266,13 +266,13 @@ report 50104 "ABC_Sales - Quote"
         {
             Type = Word;
             Caption = 'Sales - Quote';
-            LayoutFile = './SalesQuote.docx';
+            LayoutFile = './src/Layouts/SalesQuote.docx';
         }
         layout(WordLayoutWithBars)
         {
             Type = Word;
             Caption = 'Sales - Quote';
-            LayoutFile = './SalesQuoteWithBars.docx';
+            LayoutFile = './src/Layouts/SalesQuoteWithBars.docx';
         }
     }
     

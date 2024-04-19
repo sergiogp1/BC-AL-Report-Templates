@@ -1,6 +1,6 @@
-report 50101 "ABC_Sales - Credit Memo"
+report 50100 "ABC_Sales - Order Confirmation"
 {
-    Caption = 'Sales - Credit Memo';
+    Caption = 'Sales - Order Confirmation';
     DefaultRenderingLayout = WordLayout;
     PreviewMode = PrintLayout;
     WordMergeDataItem = CopyLoop;
@@ -11,17 +11,15 @@ report 50101 "ABC_Sales - Credit Memo"
         {
             DataItemTableView = sorting(Number);
             
-            dataitem(Header; "Sales Cr.Memo Header")
+            dataitem(Header; "Sales Header")
             {
-                DataItemTableView = sorting("No.");
+                DataItemTableView = sorting("No.") where("Document Type" = const(Order));
                 RequestFilterFields = "No.", "Sell-to Customer No.";
-                RequestFilterHeading = 'Posted Sales Credit Memo';
+                RequestFilterHeading = 'Sales Order';
                 
                 column(No_; "No.") { IncludeCaption = true; }
                 column(Posting_Date; Format("Posting Date", 0, '<Day,2>/<Month,2>/<Year4>')) {}
-                column(Posting_Date_Lbl; Header.FieldCaption("Posting Date")) {}
-                column(Due_Date; Format("Due Date", 0, '<Day,2>/<Month,2>/<Year4>')) {}
-                column(Due_Date_Lbl; Header.FieldCaption("Due Date")) {}
+                column(Order_Date_Lbl; Header.FieldCaption("Order Date")) {}
                 column(Your_Reference; "Your Reference") { IncludeCaption = true; }
                 column(Bill_to_Customer_No_;"Bill-to Customer No.") { IncludeCaption = true; }
                 column(Bill_to_Name;"Bill-to Name") { IncludeCaption = true; }
@@ -32,7 +30,15 @@ report 50101 "ABC_Sales - Credit Memo"
                 column(Bill_to_Post_Code;"Bill-to Post Code") { IncludeCaption = true; }
                 column(Bill_to_Country_Region_Code;"Bill-to Country/Region Code") { IncludeCaption = true; }
                 column(Bill_to_Country_Region_Name; BillToCountryName) {}
-                column(Bill_to_Contact;"Bill-to Contact") { IncludeCaption = true; }          
+                column(Bill_to_Contact;"Bill-to Contact") { IncludeCaption = true; }   
+                column(Ship_to_Name; "Ship-to Name") { IncludeCaption = true; }
+                column(Ship_to_Address; "Ship-to Address") { IncludeCaption = true; }
+                column(Ship_to_Address_2; "Ship-to Address 2") { IncludeCaption = true; }
+                column(Ship_to_City; "Ship-to City") { IncludeCaption = true; }
+                column(Ship_to_County; "Ship-to County") { IncludeCaption = true; }
+                column(Ship_to_Post_Code; "Ship-to Post Code") { IncludeCaption = true; }
+                column(Ship_to_Country_Region_Code; "Ship-to Country/Region Code") { IncludeCaption = true; }
+                column(Ship_to_Contact; "Ship-to Contact") { IncludeCaption = true; }       
                 column(VAT_Registration_No_;"VAT Registration No.") { IncludeCaption = true; }
                 column(CompanyName; CompanyInfo.Name) {}
                 column(CompanyAddress; CompanyInfo.Address) {}
@@ -53,7 +59,7 @@ report 50101 "ABC_Sales - Credit Memo"
                 column(CompanyBankNameLbl; CompanyInfo.FieldCaption("Bank Name")) {}
                 column(CompanyBankAccountNo; CompanyInfo."Bank Account No.") {}
                 column(CompanyBankAccountNo_Lbl; CompanyInfo.FieldCaption("Bank Account No.")) {}
-                column(CompanyIBAN; CompanyInfo.IBAN) {}
+                column(CompanyIBAN; CompanyIBAN) {}
                 column(CompanyIBAN_Lbl; CompanyInfo.FieldCaption(IBAN)) {}
                 column(CompanySWIFT; CompanyInfo."SWIFT Code") {}
                 column(CompanySWIFT_Lbl; CompanyInfo.FieldCaption("SWIFT Code")) {}
@@ -65,12 +71,11 @@ report 50101 "ABC_Sales - Credit Memo"
                 column(PaymentMethod_Lbl; PaymentMethod.TableCaption()) {}
                 column(SalesPersonName; SalespersonPurchaserName) {}
                 column(SalesPerson_Lbl; SalespersonPurchaser.TableCaption()) {}
-                column(Remaining_Amount; "Remaining Amount") { IncludeCaption = true; }
                 column(CurrencySymbol; CurrencySymbol) {}
-                dataitem(Line; "Sales Cr.Memo Line")
+                dataitem(Line; "Sales Line")
                 {
                     DataItemLinkReference = Header;
-                    DataItemLink = "Document No." = field("No.");
+                    DataItemLink = "Document Type" = field("Document Type"), "Document No." = field("No.");
                     DataItemTableView = sorting("Document No.", "Line No.");
                     
                     column(Description_Line; Description) { IncludeCaption = true; }
@@ -89,8 +94,6 @@ report 50101 "ABC_Sales - Credit Memo"
                     trigger OnAfterGetRecord()
                     begin
                         CurrencySymbol_Line := '';
-                        if (Type <> Type::" ") and (Quantity = 0) then
-                            CurrReport.Skip();
                                                 
                         No_Line := '';
                         if (Type <> Type::"G/L Account") and (Type <> Type::" ") then
@@ -102,7 +105,7 @@ report 50101 "ABC_Sales - Credit Memo"
                                                 
                         Quantity_Line := '';
                         if Quantity <> 0 then
-                            Quantity_Line := Format(Quantity);           
+                            Quantity_Line := Format(Quantity);
                             
                         UnitPrice_Line := '';
                         if "Unit Price" <> 0 then begin
@@ -119,7 +122,6 @@ report 50101 "ABC_Sales - Credit Memo"
                         VATAmountLine."VAT Calculation Type" := "VAT Calculation Type";
                         VATAmountLine."Tax Group Code" := "Tax Group Code";
                         VATAmountLine."VAT %" := "VAT %";
-                        VATAmountLine."EC %" := "EC %";
                         VATAmountLine."VAT Base" := Amount;
                         VATAmountLine."Amount Including VAT" := "Amount Including VAT";
                         VATAmountLine."Line Amount" := Abs("Line Amount");
@@ -188,12 +190,11 @@ report 50101 "ABC_Sales - Credit Memo"
                     column(TotalAmount; TotalAmount) { AutoFormatExpression = Header."Currency Code"; AutoFormatType = 1; }
                     column(TotalVATAmount; TotalVATAmount) { AutoFormatExpression = Header."Currency Code"; AutoFormatType = 1; }
                     column(TotalAmountIncludingVAT; TotalAmountInclVAT) { AutoFormatExpression = Header."Currency Code"; AutoFormatType = 1; }
-                    column(CurrencySymbol_Totals; CurrencySymbol) {}
+                    column(CurrencySymbol_Totals; Header."Currency Code") {}
                 }
                 
                 trigger OnPreDataItem()
                 begin
-                    SetAutoCalcFields("Remaining Amount");
                     SetRange("No.", RunningHeader."No.");
                 end;
 
@@ -204,9 +205,7 @@ report 50101 "ABC_Sales - Credit Memo"
                     TotalAmount := 0;
                     TotalVATAmount := 0;
                     TotalAmountInclVAT := 0;
-                    
-                    CurrencySymbol := RetrieveCurrencySymbol("Currency Code");
-
+                
                     BillToCountryName := '';
                     if CountryRegion.Get(Header."Bill-to Country/Region Code") then
                         BillToCountryName := CountryRegion.Name;
@@ -216,6 +215,7 @@ report 50101 "ABC_Sales - Credit Memo"
                         PaymentTermsDescription := PaymentTerms.Description;
                         
                     PaymentMethodDescription := '';
+                    CompanyIBAN := '';
                     if PaymentMethod.Get(Header."Payment Method Code") then
                         PaymentMethodDescription := PaymentMethod.Description;
                         
@@ -266,14 +266,8 @@ report 50101 "ABC_Sales - Credit Memo"
         layout(WordLayout)
         {
             Type = Word;
-            Caption = 'Sales - Credit Memo';
-            LayoutFile = './src/Layouts/SalesCreditMemo.docx';
-        }
-        layout(WordLayoutWithBars)
-        {
-            Type = Word;
-            Caption = 'Sales - Credit Memo';
-            LayoutFile = './src/Layouts/SalesCreditMemoWithBars.docx';
+            Caption = 'Sales - Order Confirmation';
+            LayoutFile = './src/Layouts/SalesOrderConfirmation.docx';
         }
     }
     
@@ -281,7 +275,7 @@ report 50101 "ABC_Sales - Credit Memo"
     {
         PageLbl = 'Page';
         Total_VatAmountLine_Lbl = 'Total';
-        InvoiceLbl = 'Sales credit memo';
+        InvoiceLbl = 'Sales - Order Confirmation';
         OtherTaxesLbl = 'Other taxes';
         VATBreakdownLbl = 'VAT breakdown';
     }
@@ -308,24 +302,11 @@ report 50101 "ABC_Sales - Credit Memo"
         CompanyInfo: Record "Company Information";
         CountryRegion: Record "Country/Region";
         GeneralLedgerSetup: Record "General Ledger Setup";
-        OldHeader, RunningHeader: Record "Sales Cr.Memo Header";
-        Quantity_Line, LineAmount_Line, UnitPrice_Line, No_Line, PaymentTermsDescription, PaymentMethodDescription: Text;
-        TotalSubTotal, TotalAmount, TotalAmountInclVAT, TotalVATAmount, TotalInvDiscAmount: Decimal;        
-        CurrencySymbol, CurrencySymbol_Line, CurrencyCode: Code[10];
+        OldHeader, RunningHeader: Record "Sales Header";
+        Quantity_Line, LineAmount_Line, UnitPrice_Line, No_Line, PaymentTermsDescription, PaymentMethodDescription, CompanyIBAN: Text;
+        TotalSubTotal, TotalAmount, TotalAmountInclVAT, TotalVATAmount, TotalInvDiscAmount: Decimal;
+        CurrencySymbol, CurrencySymbol_Line: Code[10];
         SalespersonPurchaserName, LineDiscountTxt, BillToCountryName, CompanyInfoCountryName: Text;
         NoOfCopies: Integer;
         AutoFormat: Codeunit "Auto Format";
-
-    local procedure RetrieveCurrencySymbol(CurrencyCode: Code[10]): Code[10]
-    var
-        Currency: Record Currency;
-    begin
-        if (CurrencyCode = '') or (CurrencyCode = GeneralLedgerSetup."LCY Code") then
-            exit(GeneralLedgerSetup.GetCurrencySymbol());
-
-        if Currency.Get(CurrencyCode) then
-            exit(Currency.GetCurrencySymbol());
-
-        exit(CurrencyCode);
-    end;
 }

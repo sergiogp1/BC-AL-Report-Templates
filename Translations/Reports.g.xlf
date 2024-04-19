@@ -178,6 +178,56 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Invoice - ReportLayout WordLayoutWithBars - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Report 3926913973 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Order Confirmation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - NamedType 2491107794" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must specify one or more filters to prevent accidental printing of all documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - NamedType NoFilterSetErr</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - ReportDataItem 907109761 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales Order</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - ReportDataItem Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - ReportLabel 2813721509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Order Confirmation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - ReportLabel InvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - ReportLabel 3788499303" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Other taxes</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - ReportLabel OtherTaxesLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - ReportLabel 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - ReportLabel PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - ReportLabel 700491179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - ReportLabel Total_VatAmountLine_Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - ReportLabel 3900145936" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT breakdown</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - ReportLabel VATBreakdownLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - Control 1050973291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of copies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - Control NoOfCopies2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3926913973 - ReportLayout 3548004808 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Order Confirmation</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Order Confirmation - ReportLayout WordLayout - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Report 3696120540 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sales - Quote</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -237,6 +287,46 @@
           <source>Sales - Quote</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Quote - ReportLayout WordLayoutWithBars - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - NamedType 2491107794" size-unit="char" translate="yes" xml:space="preserve">
+          <source>You must specify one or more filters to prevent accidental printing of all documents.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - NamedType NoFilterSetErr</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - ReportDataItem 907109761 - Property 1806354803" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - ReportDataItem Header - Property RequestFilterHeading</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - ReportLabel 2813721509" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delivery Note</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - ReportLabel InvoiceLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - ReportLabel 1877187315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Page</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - ReportLabel PageLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - ReportLabel 700491179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - ReportLabel Total_VatAmountLine_Lbl</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - Control 1050973291 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No. of copies</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - Control NoOfCopies2 - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1151195022 - ReportLayout 3548004808 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales - Shipment</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report ABC_Sales - Shipment - ReportLayout WordLayout - Property Caption</note>
         </trans-unit>
       </group>
     </body>

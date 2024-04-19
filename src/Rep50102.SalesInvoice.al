@@ -74,6 +74,7 @@ report 50102 "ABC_Sales - Invoice"
                     DataItemLink = "Document No." = field("No.");
                     DataItemTableView = sorting("Document No.", "Line No.");
                     
+                    column(Line_No_;"Line No.") {}
                     column(Description_Line; Description) { IncludeCaption = true; }
                     column(LineDiscountPercent_Line; LineDiscountTxt) {}
                     column(LineDiscountPercent_Line_Lbl; Line.FieldCaption("Line Discount %")) {}
@@ -271,13 +272,13 @@ report 50102 "ABC_Sales - Invoice"
         {
             Type = Word;
             Caption = 'Sales - Invoice';
-            LayoutFile = './SalesInvoice.docx';
+            LayoutFile = './src/Layouts/SalesInvoice.docx';
         }
         layout(WordLayoutWithBars)
         {
             Type = Word;
             Caption = 'Sales - Invoice';
-            LayoutFile = './SalesInvoiceWithBars.docx';
+            LayoutFile = './src/Layouts/SalesInvoiceWithBars.docx';
         }
     }
     

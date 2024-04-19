@@ -192,13 +192,13 @@ report 50103 "ABC_Purchase - Order"
         {
             Type = Word;
             Caption = 'Purchase - Order';
-            LayoutFile = './PurchaseOrder.docx';
+            LayoutFile = './src/Layouts/PurchaseOrder.docx';
         }
         layout(WordLayoutWithBars)
         {
             Type = Word;
             Caption = 'Purchase - Order';
-            LayoutFile = './PurchaseOrderWithBars.docx';
+            LayoutFile = './src/Layouts/PurchaseOrderWithBars.docx';
         }
     }
     
